@@ -19,6 +19,6 @@ def get_binary(p1:str):
                 p2 += TextToBin[character]
             except KeyError as error:
                 p2 += "0110101"
-    with open("binary.txt", "w") as bin:
+    with open("BinOutput.txt", "w") as bin:
         bin.write(p2)
     pass

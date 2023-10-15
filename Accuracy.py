@@ -5,12 +5,12 @@ with open("text.txt", "r") as file:
     text = file.read()
 get_binary(text)
 
-with open("binary.txt", "r") as bin:
+with open("BinOutput.txt", "r") as bin:
     bintext = bin.read()
 
 get_text(bintext)
 
-with open("uncompressed.txt", "r") as unc:
+with open("TextOutput.txt", "r") as unc:
     final = unc.read()
 
 count = 0
@@ -20,3 +20,5 @@ if len(final) == len(text):
             count +=1
     accuracy = (count/len(final))*100
     print("accuracy: ", accuracy, "%")
+else:
+    print("data loss, unable calculate accuracy")

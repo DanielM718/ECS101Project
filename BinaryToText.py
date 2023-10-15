@@ -22,12 +22,12 @@ def get_text(p1: str):
                 p2 += BinToText[p1[item:item+7]]
             buffer += 6
 
-    with open("uncompressed.txt", "w") as unc:
+    with open("TextOutput.txt", "w") as unc:
         unc.write(p2)
     pass
 
 
-with open("binary.txt", "r") as file:
+with open("BinOutput.txt", "r") as file:
     text = file.read()
 
 get_text(text)
