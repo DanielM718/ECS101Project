@@ -7,7 +7,6 @@ get_binary(text)
 
 with open("BinOutput.txt", "r") as bin:
     bintext = bin.read()
-
 get_text(bintext)
 
 with open("TextOutput.txt", "r") as unc:
@@ -17,8 +16,12 @@ count = 0
 if len(final) == len(text):
     for i in range(len(final)):
         if final[i] == text[i]:
-            count +=1
-    accuracy = (count/len(final))*100
+            count += 1
+    accuracy = (count / len(final)) * 100
     print("accuracy: ", accuracy, "%")
 else:
     print("data loss, unable calculate accuracy")
+
+
+ratio = 100-(len(bintext)/(len(text)*8))*100
+print("compression ratio: ", ratio, "%")

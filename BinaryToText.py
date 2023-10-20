@@ -5,7 +5,9 @@ Characters = data["Characters"]
 CB = data["Compressed Binary"]
 BinToText = dict(zip(CB, Characters))
 
+
 def get_text(p1: str):
+    p1 = p1.split(".")[1]
     p2 = ""
     buffer = 0
     for item in range(len(p1)):
@@ -13,13 +15,13 @@ def get_text(p1: str):
             buffer -= 1
             continue
         if p1[item] == "1":
-            p2 += BinToText[p1[item:item+4]]
+            p2 += BinToText[p1[item:item + 4]]
             buffer += 3
         elif p1[item] == "0":
-            if "0110100" == p1[item:item+7]:
+            if "0110100" == p1[item:item + 7]:
                 p2 += "\n"
             else:
-                p2 += BinToText[p1[item:item+7]]
+                p2 += BinToText[p1[item:item + 7]]
             buffer += 6
 
     with open("TextOutput.txt", "w") as unc:
@@ -31,4 +33,3 @@ with open("BinOutput.txt", "r") as file:
     text = file.read()
 
 get_text(text)
-

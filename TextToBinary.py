@@ -5,10 +5,8 @@ Characters = data["Characters"]
 CB = data["Compressed Binary"]
 TextToBin = dict(zip(Characters, CB))
 
-# with open("text.txt", "r") as file:
-#     text = file.read()
 
-def get_binary(p1:str):
+def get_binary(p1: str):
     # print(TextToBin)
     p2 = ""
     for character in p1:
@@ -20,5 +18,11 @@ def get_binary(p1:str):
             except KeyError as error:
                 p2 += "0110101"
     with open("BinOutput.txt", "w") as bin:
-        bin.write(p2)
+        bin.write(str(len(p2)) + "." + p2)
     pass
+
+
+with open("text.txt", "r") as file:
+    text = file.read()
+
+get_binary(text)
